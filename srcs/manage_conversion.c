@@ -6,11 +6,11 @@
 /*   By: lgaveria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 16:57:39 by lgaveria          #+#    #+#             */
-/*   Updated: 2018/12/18 16:43:42 by lgaveria         ###   ########.fr       */
+/*   Updated: 2018/12/19 16:54:02 by lgaveria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.c"
+#include "printf.h"
 
 char	*manage_ptr(void *src, t_convlst *conv)
 {

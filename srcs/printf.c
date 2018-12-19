@@ -6,7 +6,7 @@
 /*   By: lgaveria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:27:13 by lgaveria          #+#    #+#             */
-/*   Updated: 2018/12/18 18:44:54 by lgaveria         ###   ########.fr       */
+/*   Updated: 2018/12/19 18:30:26 by lgaveria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,33 @@ t_arglst	*get_arg(t_convlst *conv_start, va_list ap)
 	return (get_fw_prec_arg(conv_start, arg_start));
 }
 
-int			ft_printf(const char*src, ...)
+/*int			ft_printf(const char*src, ...)
+{
+	va_list		ap;
+	t_convlst	*conv_lst;
+	t_arglst	*arg_lst;
+	int			ret;
+
+	conv_lst = global_pars(src);
+	if (conv_lst)
+	{
+		va_start(ap, src);
+		arg_lst = get_arg(conv_lst, ap);
+		va_end(ap);
+		manage_conv(conv_lst);
+		manage_opt(&conv_lst);
+	}
+	ret = aff_list(get_str_to_print((char*)src, conv_lst), 1);
+	if (conv_lst)
+	{
+		free_convlst(conv_lst);
+		if (arg_lst)
+			free_arglst(arg_lst);
+	}
+	return (ret);
+}*/
+
+int			ft_printf(char **s, const char* src, ...)
 {
 	va_list		ap;
 	t_convlst	*conv_lst;
@@ -91,6 +117,7 @@ int			ft_printf(const char*src, ...)
 
 //	t_convlst	*tmp;//
 
+//	write(1, "before GLOBAL_PARS\n", 19);
 	conv_lst = global_pars(src);
 	if (conv_lst)
 	{
@@ -107,29 +134,20 @@ int			ft_printf(const char*src, ...)
 		}
 		return 1;*/
 		va_start(ap, src);
+//		write(1, "before GET_ARG\n", 15);
 		arg_lst = get_arg(conv_lst, ap);
 		va_end(ap);
 		manage_conv(conv_lst);
 		manage_opt(&conv_lst);
 	}
-	ret = aff_list(get_str_to_print((char*)src, conv_lst), 1);
+//	write(1, "before AFF_LIST\n", 16);
+	*s = NULL;
+	ret = aff_list(get_str_to_print((char*)src, conv_lst), 1, s);
 	if (conv_lst)
 	{
 		free_convlst(conv_lst);
 		if (arg_lst)
 			free_arglst(arg_lst);
 	}
-	return 0;
-}
-
-int		main(int av, char **ac)
-{
-//	char *test = ac[1];
-	char *test = "%lls";
-
-	printf("argument: %s\n", test);
-	int ret = ft_printf(test);
-	if (!ret)
-		write(1, "NOTHING\n", 8);
-	return 0;
+	return (ret);
 }

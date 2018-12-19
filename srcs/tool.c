@@ -6,11 +6,11 @@
 /*   By: lgaveria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 18:06:29 by lgaveria          #+#    #+#             */
-/*   Updated: 2018/12/18 16:57:48 by lgaveria         ###   ########.fr       */
+/*   Updated: 2018/12/19 17:07:59 by lgaveria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.c"
+#include "printf.h"
 
 char	*create_base(char opt)
 {

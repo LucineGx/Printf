@@ -6,7 +6,7 @@
 /*   By: lgaveria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:59:20 by lgaveria          #+#    #+#             */
-/*   Updated: 2018/12/18 17:02:17 by lgaveria         ###   ########.fr       */
+/*   Updated: 2018/12/19 16:50:58 by lgaveria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*convert_base_longlong(unsigned long long *n, char *base);
 char	*convert_base_short(unsigned short *n, char *base);
 char	*convert_base_sizet(ssize_t *n, char *base);
 char	*ft_itoa(int n);
+char	*ft_itoa_int(int *n);
 char	*ft_itoa_char(char *s);
 char	*ft_itoa_intmaxt(intmax_t *n);
 char	*ft_itoa_long(long *n);
